@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexGuide: IPC & BNS Interactive Reference</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="gavel-icon">⚖️</span>
+                <h1>LEXGUIDE</h1>
+                <p class="subtitle">IPC & BNS Reference Portal</p>
+            </div>
+            <div class="header-actions">
+                <button id="random-btn" class="btn btn-secondary" title="Learn a random section">🎲 Random Law</button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">Mode</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <section class="control-panel">
+            <div class="search-wrapper">
+                <input type="text" id="search-input" placeholder="Search by section, keyword, offence, or punishment..." autocomplete="off">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="filter-wrapper">
+                <select id="act-filter" class="filter-select">
+                    <option value="all">All Acts (IPC & BNS)</option>
+                    <option value="IPC">Indian Penal Code (IPC)</option>
+                    <option value="BNS">Bharatiya Nyaya Sanhita (BNS)</option>
+                </select>
+                <select id="category-filter" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="Human Body">Offences Against Human Body</option>
+                    <option value="Property">Offences Against Property</option>
+                    <option value="Women & Children">Offences Against Women & Children</option>
+                    <option value="Public Tranquility">Public Tranquility & State</option>
+                </select>
+                <button id="favorites-toggle-btn" class="btn btn-outline">⭐ Bookmarks (<span id="fav-count">0</span>)</button>
+            </div>
+        </section>
+
+        <section class="results-container">
+            <h2 id="view-title" class="section-heading">All Legal Sections</h2>
+            <div id="law-grid" class="law-grid">
+                </div>
+            <div id="no-results" class="no-results hidden">
+                <p>No sections match your search criteria. Try adjusting your filters.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="details-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-header">
+                <span id="modal-badge" class="badge"></span>
+                <h2 id="modal-section-title">Section Title</h2>
+                <h3 id="modal-offence">Offence Name</h3>
+            </div>
+            <div class="modal-body">
+                <div class="meta-grid">
+                    <div class="meta-item">
+                        <span class="meta-label">Category</span>
+                        <span id="modal-category" class="meta-value">--</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Bailable Status</span>
+                        <span id="modal-bailable" class="meta-value">--</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Cognizable Status</span>
+                        <span id="modal-cognizable" class="meta-value">--</span>
+                    </div>
+                </div>
+                <div class="detail-block">
+                    <h4>Description & Provision</h4>
+                    <p id="modal-description">Detailed description text goes here...</p>
+                </div>
+                <div class="detail-block punishment-block">
+                    <h4>Punishment Framework</h4>
+                    <p id="modal-punishment">Punishment details go here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 LexGuide Portal. Production Ready Framework. Designed for educational reference.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
